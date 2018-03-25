@@ -427,7 +427,7 @@
 			
 			<div class="col-md-6 col-md-offset-3 text-center wrap_title">
 				<h2>Contact Us</h2>
-				<p class="lead" style="margin-top:0">A special thanks to Death.</p>
+				<p class="lead" style="margin-top:0">Dúvidas e sugestões.</p>
 			</div>
 			
 			<form role="form" action="" method="post" >
