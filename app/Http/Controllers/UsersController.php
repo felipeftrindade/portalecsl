@@ -9,10 +9,8 @@ use Illuminate\Support\Facades\Input;
 class UsersController extends Controller {
 
   public function postLogin() {
-    if (Auth::attempt(array('email' => Input::get('email'),'password' => Input::get('password')))){
-      return redirect('/admin');
-    }
-    return redirect('/');
+    Auth::attempt(array('email' => Input::get('email'),'password' => Input::get('password')));
+    return view('posts.addpost');
   }
 
   public function getLogout() {

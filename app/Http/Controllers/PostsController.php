@@ -40,7 +40,7 @@ class PostsController extends Controller {
                'page'
              );
 
-      return view('post', $data);
+      return view('posts.post', $data);
   }
 
     public function getIndex() {
@@ -49,14 +49,19 @@ class PostsController extends Controller {
     }
 
     public function getAdmin() {
-      return view('addpost');
+      return view('posts.addpost');
     }
 
     public function postAdd() {
       Post::create(array(
                   'title' => Input::get('title'),
+                  'url' => Input::get('url'),
+                  'description' => Input::get('description'),
                   'content' => Input::get('content'),
-                  'author_id' => Auth::user()->id
+                  'image' => Input::get('image'),
+                  'blog' => 1,
+                  'category_id' => 1,
+                  'author_id' => Auth::user()->id,
        ));
       return redirect('/');
     }

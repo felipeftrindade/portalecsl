@@ -43,7 +43,7 @@
 
 						<!-- blog post -->
 						<div class="blog-post">
-              {{$post->content}}
+              {!!$post->content!!}
 
               <!--
 							<p>An aeterno percipit per. His minim maiestatis consetetur et, brute tantas iracundia id sea. Vim tota nostrum reformidans te. Nam ad appareat mediocritatem, mediocrem similique usu ex, scaevola invidunt eu sed.</p>

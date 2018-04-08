@@ -43,6 +43,7 @@
 				</div>
 
 				<!-- Navigation -->
+				<!--
 				<nav id="nav">
 					<ul class="main-menu nav navbar-nav navbar-right">
 						<li><a href="/">Home</a></li>
@@ -52,12 +53,13 @@
 						<li><a href="#">Contact</a></li>
 					</ul>
 				</nav>
+			-->
 				<!-- /Navigation -->
 
 			</div>
 		</header>
 		<!-- /Header -->
-    
+
     @yield('content')
 
     <!-- aside blog -->
@@ -74,19 +76,21 @@
 
       <!-- category widget -->
       <div class="widget category-widget">
-        <h3>Categories</h3>
+        <h3>Categorias</h3>
+				{{--
         <a class="category" href="#">Web <span>12</span></a>
         <a class="category" href="#">Css <span>5</span></a>
         <a class="category" href="#">Wordpress <span>24</span></a>
         <a class="category" href="#">Html <span>78</span></a>
         <a class="category" href="#">Business <span>36</span></a>
+				--}}
       </div>
       <!-- /category widget -->
 
       <!-- posts widget -->
       <div class="widget posts-widget">
-        <h3>Recents Posts</h3>
-
+        <h3>Últimos posts</h3>
+				{{--
         <!-- single posts -->
         <div class="single-post">
           <a class="single-post-img" href="blog-post.html">
@@ -116,13 +120,14 @@
           <p><small>By : John Doe .18 Oct, 2017</small></p>
         </div>
         <!-- /single posts -->
-
+				--}}
       </div>
       <!-- /posts widget -->
 
       <!-- tags widget -->
       <div class="widget tags-widget">
         <h3>Tags</h3>
+				  <!--
         <a class="tag" href="#">Web</a>
         <a class="tag" href="#">Photography</a>
         <a class="tag" href="#">Css</a>
@@ -131,6 +136,7 @@
         <a class="tag" href="#">Html</a>
         <a class="tag" href="#">Website</a>
         <a class="tag" href="#">Business</a>
+			-->
       </div>
       <!-- /tags widget -->
 
@@ -166,6 +172,7 @@
     <!-- footer logo -->
 
     <!-- footer nav -->
+		<!--
     <div class="col-md-6">
       <ul class="footer-nav">
         <li><a href="index.html">Home</a></li>
@@ -175,6 +182,7 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
+	-->
     <!-- /footer nav -->
 
   </div>
@@ -184,6 +192,7 @@
   <div id="bottom-footer" class="row">
 
     <!-- social -->
+		<!--
     <div class="col-md-4 col-md-push-8">
       <ul class="footer-social">
         <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
@@ -194,6 +203,7 @@
         <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
       </ul>
     </div>
+	-->
     <!-- /social -->
 
     <!-- copyright -->
