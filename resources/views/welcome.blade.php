@@ -1,5 +1,8 @@
 @extends('layouts.master')
 
+@section('titulo')
+	Empreendendo com Software Livre
+@endsection
 @section('content')
 		<!-- Hero-area -->
 		<div class="hero-area section">
@@ -44,11 +47,11 @@
   							<div class="col-md-6">
   								<div class="single-blog">
   									<div class="blog-img">
-  										<a href="{{'/post/'.$post->url}}">
+  										<a href="{{'/'.$post->url}}">
   											<img src="{{'./img/'.$post->image}}" alt="">
   										</a>
   									</div>
-  									<h4><a href="{{'/post/'.$post->url}}">{{$post->title}}</a></h4>
+  									<h4><a href="{{'/'.$post->url}}">{{$post->title}}</a></h4>
   									<div class="blog-meta">
   										<span class="blog-meta-author">Por: <a href="#">{{$post->Author->name}}</a></span>
   										<div class="pull-right">

@@ -1,5 +1,8 @@
 @extends('layouts.master')
 
+@section('titulo')
+	{{$title}} - ECSL
+@endsection
 @section('content')
 		<!-- Hero-area -->
 		<div class="hero-area section">

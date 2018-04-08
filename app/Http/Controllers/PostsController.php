@@ -53,6 +53,13 @@ class PostsController extends Controller {
     }
 
     public function postAdd() {
+
+      $this->validate(request(), [
+          'title' => 'required|unique:posts',
+          'url' => 'required|unique:posts',
+          'content' => 'required',
+      ]);
+
       Post::create(array(
                   'title' => Input::get('title'),
                   'url' => Input::get('url'),
@@ -63,6 +70,7 @@ class PostsController extends Controller {
                   'category_id' => 1,
                   'author_id' => Auth::user()->id,
        ));
+
       return redirect('/');
     }
 
