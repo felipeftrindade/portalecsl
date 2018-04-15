@@ -95,4 +95,5 @@
 @endsection
 @section('count-disqus')
 	<script id="dsq-count-scr" src="//portalecsl.disqus.com/count.js" async></script>
+	DISQUSWIDGETS.getCount({reset: true});
 @endsection
