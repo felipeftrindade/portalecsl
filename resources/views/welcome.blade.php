@@ -53,10 +53,11 @@
   									</div>
   									<h4><a href="{{'/'.$post->url}}">{{$post->title}}</a></h4>
   									<div class="blog-meta">
+											<span class="description"></span>
   										<span class="blog-meta-author">Por: <a href="#">{{$post->Author->name}}</a></span>
   										<div class="pull-right">
   											<span>{{date('d M, Y à\s H:i', strtotime($post->created_at))}}</span>
-  											<!--<span class="blog-meta-comments"><a href="#"><i class="fa fa-comments"></i> 35</a></span>-->
+  											<span class="blog-meta-comments"><a href="{{'/'.$post->url}}#disqus_thread" data-disqus-identifier="{{$post->url}}"></a></span>
   										</div>
   									</div>
   								</div>
@@ -91,4 +92,7 @@
 						<!-- /row -->
 					</div>
 					<!-- /main blog -->
+@endsection
+@section('count-disqus')
+	<script id="dsq-count-scr" src="//portalecsl.disqus.com/count.js" async></script>
 @endsection

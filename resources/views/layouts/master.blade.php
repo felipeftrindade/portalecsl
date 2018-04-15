@@ -6,6 +6,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		<title>@yield('titulo')</title>
+
+		@yield('seo')
+
 		<!-- Google font -->
 		<link href="https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600" rel="stylesheet">
 		<!-- Bootstrap -->
@@ -228,10 +231,12 @@
 <!-- /preloader -->
 
 
-<!-- jQuery Plugins -->
-<script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/main.js')}}"></script>
+	<!-- jQuery Plugins -->
+	<script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('js/main.js')}}"></script>
 
+	<!-- Disqus -->
+	@yield('count-disqus')	
 </body>
 </html>

@@ -3,6 +3,11 @@
 @section('titulo')
 	{{$title}} - ECSL
 @endsection
+
+@section('seo')
+	<link rel="canonical" href="{{URL::current()}}"/>
+@endsection
+
 @section('content')
 		<!-- Hero-area -->
 		<div class="hero-area section">
@@ -47,102 +52,43 @@
 						<!-- blog post -->
 						<div class="blog-post">
               {!!$post->content!!}
-
-              <!--
-							<p>An aeterno percipit per. His minim maiestatis consetetur et, brute tantas iracundia id sea. Vim tota nostrum reformidans te. Nam ad appareat mediocritatem, mediocrem similique usu ex, scaevola invidunt eu sed.</p>
-							<p>Reque admodum praesent ei nec. Ad eius phaedrum conclusionemque cum, pri cu suas essent saperet. No vero ludus habemus qui. Per ex errem torquatos, eam in tale sumo mentitum. Cum nulla viderer no. Pri id antiopam volutpat evertitur, in vidit interpretaris nec.</p>
-							<p>Te option apeirian corrumpit nec, has et tollit minimum molestie. Nam et justo everti, tale repudiandae cu nec. Aliquip legendos evertitur ne sit, mazim sadipscing sea ei. Sea no facete probatus vulputate, ex pri reque tempor. Odio adolescens ius te, docendi suscipit indoctum at qui.</p>
-							<blockquote>
-							  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-							</blockquote>
-							<p>An aeterno percipit per. His minim maiestatis consetetur et, brute tantas iracundia id sea. Vim tota nostrum reformidans te. Nam ad appareat mediocritatem, mediocrem similique usu ex, scaevola invidunt eu sed.</p>
-							<p>Reque admodum praesent ei nec. Ad eius phaedrum conclusionemque cum, pri cu suas essent saperet. No vero ludus habemus qui. Per ex errem torquatos, eam in tale sumo mentitum. Cum nulla viderer no. Pri id antiopam volutpat evertitur, in vidit interpretaris nec.</p>
-							<p>Te option apeirian corrumpit nec, has et tollit minimum molestie. Nam et justo everti, tale repudiandae cu nec. Aliquip legendos evertitur ne sit, mazim sadipscing sea ei. Sea no facete probatus vulputate, ex pri reque tempor. Odio adolescens ius te, docendi suscipit indoctum at qui.</p>
-            -->
             </div>
-
 						<!-- /blog post -->
 
 						<!-- blog share -->
+						{{--
 						<div class="blog-share">
-							<h4>Share This Post:</h4>
+							<h4>Compartilhar:</h4>
 							<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
 							<a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
 							<a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
 						</div>
+						--}}
 						<!-- /blog share -->
 
+
 						<!-- blog comments -->
-						<div class="blog-comments">
-							<h3>5 Comments</h3>
-
-							<!-- single comment -->
-							<div class="media">
-								<div class="media-left">
-									<img src="{{asset('./img/avatar.png')}}" alt="">
-								</div>
-								<div class="media-body">
-									<h4 class="media-heading">John Doe</h4>
-									<p>Cu his iudico appareat ullamcorper, at mea ignota nostrum. Nonumy argumentum id cum, eos adversarium contentiones id</p>
-									<div class="date-reply"><span>Oct 18, 2017 - 4:00AM</span><a href="#" class="reply">Reply</a></div>
-								</div>
-
-								<!-- comment reply -->
-								<div class="media">
-									<div class="media-left">
-										<img src="{{asset('./img/avatar.png')}}" alt="">
-									</div>
-									<div class="media-body">
-										<h4 class="media-heading">John Doe</h4>
-										<p>Cu his iudico appareat ullamcorper, at mea ignota nostrum. Nonumy argumentum id cum, eos adversarium contentiones id</p>
-										<div class="date-reply"><span>Oct 18, 2017 - 4:00AM</span><a href="#" class="reply">Reply</a></div>
-									</div>
-								</div>
-								<!-- /comment reply -->
-
-								<!-- comment reply -->
-								<div class="media">
-									<div class="media-left">
-										<img src="{{asset('./img/avatar.png')}}" alt="">
-									</div>
-									<div class="media-body">
-										<h4 class="media-heading">John Doe</h4>
-										<p>Cu his iudico appareat ullamcorper, at mea ignota nostrum. Nonumy argumentum id cum, eos adversarium contentiones id</p>
-										<div class="date-reply"><span>Oct 18, 2017 - 4:00AM</span><a href="#" class="reply">Reply</a></div>
-									</div>
-								</div>
-								<!-- /comment reply -->
-
-							</div>
-							<!-- /single comment -->
-
-							<!-- single comment -->
-							<div class="media">
-								<div class="media-left">
-									<img src="{{asset('./img/avatar.png')}}" alt="">
-								</div>
-								<div class="media-body">
-									<h4 class="media-heading">John Doe</h4>
-									<p>Cu his iudico appareat ullamcorper, at mea ignota nostrum. Nonumy argumentum id cum, eos adversarium contentiones id</p>
-									<div class="date-reply"><span>Oct 18, 2017 - 4:00AM</span><a href="#" class="reply">Reply</a></div>
-								</div>
-							</div>
-							<!-- /single comment -->
-
-							<!-- blog reply form -->
-							<div class="blog-reply-form">
-								<h3>Leave Comment</h3>
-								<form>
-									<input class="input name-input" type="text" name="name" placeholder="Name">
-									<input class="input email-input" type="email" name="email" placeholder="Email">
-									<textarea class="input" name="message" placeholder="Enter your Message"></textarea>
-									<button class="main-button icon-button">Submit</button>
-								</form>
-							</div>
-							<!-- /blog reply form -->
-
-						</div>
+						<div id="disqus_thread" class="blog-comments"></div>
 						<!-- /blog comments -->
-					</div>
+						<script>
+							/**
+							*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+							*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+							var disqus_config = function () {
+								this.page.url = '{{URL::current()}}';  // Replace PAGE_URL with your page's canonical URL variable
+								this.page.identifier = '{{$post->url}}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+							};
+
+							(function() { // DON'T EDIT BELOW THIS LINE
+								var d = document, s = d.createElement('script');
+								s.src = 'https://portalecsl.disqus.com/embed.js';
+								s.setAttribute('data-timestamp', +new Date());
+								(d.head || d.body).appendChild(s);
+							})();
+						</script>
+						<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 					<!-- /main blog -->
+				</div>
 @endsection
