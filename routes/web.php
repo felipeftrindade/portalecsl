@@ -11,12 +11,19 @@
 |
 */
 
-Route::get('/', array('as' => 'index', 'uses' => 'PostsController@blog'));
-Route::get('/admin', array('as' => 'admin_area', 'uses' => 'PostsController@getAdmin'));
-Route::get('/{url}','PostsController@blog_post');
-Route::post('/add', array('as' => 'add_new_post', 'uses' => 'PostsController@postAdd'));
-Route::post('/login', array('as' => 'login', 'uses' => 'UsersController@postLogin'));
-Route::post('/logout', array('as' => 'logout', 'uses' => 'UsersController@getLogout'));
+Route::get('/', 'PostsController@index');
+//Route::get('search/{s?}', 'SearchesController@getIndex')->where('s', '[\w\d]+');
+Route::get('/admin', 'UsersController@getLogin');
+Route::get('/posts','PostsController@listAll');
+Route::get('/posts/add', 'PostsController@add');
+Route::get('/posts/{id}/edit','PostsController@edit');
+Route::get('/{url}','PostsController@show');
+Route::post('/posts','PostsController@store');
+Route::patch('/posts/{post}','PostsController@update');
+Route::delete('/posts/{id}','PostsController@delete');
+
+Route::post('/login', 'UsersController@postLogin');
+Route::post('/logout', 'UsersController@getLogout');
 
 #Auth::routes();
 #Route::get('/home', 'HomeController@index')->name('home');

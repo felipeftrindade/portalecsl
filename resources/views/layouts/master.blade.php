@@ -39,9 +39,11 @@
 					<!-- /Logo -->
 
 					<!-- Mobile toggle -->
+					{{--
 					<button class="navbar-toggle">
 						<span></span>
 					</button>
+					--}}
 					<!-- /Mobile toggle -->
 				</div>
 
@@ -237,6 +239,6 @@
 	<script type="text/javascript" src="{{asset('js/main.js')}}"></script>
 
 	<!-- Disqus -->
-	@yield('count-disqus')	
+	@yield('count-disqus')
 </body>
 </html>

@@ -27,7 +27,13 @@
 						<h1 class="white-text">{{$title}}</h1>
 						<ul class="blog-post-meta">
 							<li class="blog-meta-author">Por : <a href="#">{{$post->Author->name}}</a></li>
-							<li>{{date('d M, Y à\s H:i', strtotime($post->created_at))}}</li>
+							<li>
+								@if ($post->updated_at !== null && $post->updated_at > $post->created_at)
+									Atualizado em {{date('d/m/Y H:i', strtotime($post->updated_at))}}
+								@else
+									{{date('d M, Y à\s H:i', strtotime($post->created_at))}}
+								@endif								
+							</li>
 							<!--<li class="blog-meta-comments"><a href="#"><i class="fa fa-comments"></i> 35</a></li>-->
 						</ul>
 					</div>
