@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-  Publicações - ECSL
+  Publicações | ECSL
 @endsection
 
 @section('content')

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-  Nova Publicação - ECSL
+  Nova Publicação | ECSL
 @endsection
 
 @section('custom-header')

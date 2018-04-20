@@ -72,8 +72,8 @@
 
       <!-- search widget -->
       <div class="widget search-widget">
-        <form>
-          <input class="input" type="text" name="search">
+        <form action="/search" method="GET">
+          <input class="input" type="text" name="s" value="{{ Request::query('s') }}" placeholder="Buscar">
           <button><i class="fa fa-search"></i></button>
         </form>
       </div>

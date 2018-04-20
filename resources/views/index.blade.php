@@ -54,7 +54,7 @@
   									<h4><a href="{{'/'.$post->url}}">{{$post->title}}</a></h4>
   									<div class="blog-meta">
 											<span class="description"></span>
-  										<span class="blog-meta-author">Por: <a href="#">{{$post->Author->name}}</a></span>
+  										<span class="blog-meta-author">Por: {{$post->Author->name}}</span>
   										<div class="pull-right">
   											<span>{{date('d M, Y à\s H:i', strtotime($post->created_at))}}</span>
   											<span class="blog-meta-comments"><a href="{{'/'.$post->url}}#disqus_thread" data-disqus-identifier="{{$post->url}}"></a></span>

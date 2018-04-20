@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'PostsController@index');
-//Route::get('search/{s?}', 'SearchesController@getIndex')->where('s', '[\w\d]+');
+Route::get('/search/{s?}', 'SearchesController@getIndex')->where('s', '[\w\d]+');
 Route::get('/admin', 'UsersController@getLogin');
 Route::get('/posts','PostsController@listAll');
 Route::get('/posts/add', 'PostsController@add');
