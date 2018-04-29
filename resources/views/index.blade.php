@@ -44,7 +44,7 @@
   								<div class="single-blog">
   									<div class="blog-img">
   										<a href="{{'/'.$post->url}}">
-  											<img src="{{asset('images/'.$post->image)}}">
+  											<img width="200px" height="200px" src="{{asset('images/'.$post->image)}}">
   										</a>
   									</div>
   									<h4><a href="{{'/'.$post->url}}">{{$post->title}}</a></h4>
