@@ -9,6 +9,7 @@ use App\Post;
 use Session;
 use Storage;
 use Image;
+use Purifier;
 
 class PostsController extends Controller {
 
@@ -73,7 +74,7 @@ class PostsController extends Controller {
       $post->title = $request->input('title');
       $post->url = $request->input('url');
       $post->description = $request->input('description');
-      $post->content = $request->input('content');
+      $post->content = Purifier::clean($request->input('content'));
 
       if ($request->hasFile('image')) {
         $image = $request->file('image');
@@ -101,7 +102,7 @@ class PostsController extends Controller {
 
       $post->title = $request->input('title');
       $post->description = $request->input('description');
-      $post->content = $request->input('content');
+      $post->content = Purifier::clean($request->input('content'));
 
       if ($request->hasFile('image')) {
         $image = $request->file('image');
