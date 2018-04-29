@@ -14,10 +14,6 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-10 col-md-offset-1 text-center">
-						<!--<ul class="hero-area-tree">
-							<li><a href="index.html">Home</a></li>
-							<li>Blog</li>
-						</ul>-->
 						<h1 class="white-text">Empreendendo com Software Livre</h1>
 
 					</div>

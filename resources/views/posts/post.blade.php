@@ -19,21 +19,15 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-10 col-md-offset-1 text-center">
-						<!--<ul class="hero-area-tree">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="blog.html">Blog</a></li>
-							<li>How to Get Started in Photography</li>
-						</ul>-->
 						<h1 class="white-text">{{$title}}</h1>
 						<ul class="blog-post-meta">
 							<li>
 								Por : {{$post->Author->name}}&nbsp;&nbsp;|&nbsp;&nbsp;
 								{{date('d M, Y à\s H:i', strtotime($post->created_at))}}
 								@if ($post->updated_at !== null && $post->updated_at > $post->created_at)
-									- Atualizado em {{date('d M, Y à\s H:i', strtotime($post->updated_at))}}
+									- Última atualização em {{date('d M, Y à\s H:i', strtotime($post->updated_at))}}
 								@endif
 							</li>
-							<!--<li class="blog-meta-comments"><a href="#"><i class="fa fa-comments"></i> 35</a></li>-->
 						</ul>
 					</div>
 				</div>
@@ -59,17 +53,6 @@
               {!!$post->content!!}
             </div>
 						<!-- /blog post -->
-
-						<!-- blog share -->
-						{{--
-						<div class="blog-share">
-							<h4>Compartilhar:</h4>
-							<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-							<a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-							<a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-						</div>
-						--}}
-						<!-- /blog share -->
 
 @if (!App::environment('local')) {
 						<!-- blog comments -->

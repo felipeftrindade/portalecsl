@@ -3,13 +3,6 @@
 @section('title')
   Nova Publicação | ECSL
 @endsection
-{{--
-[
-   'advlist autolink lists link image charmap print preview anchor textcolor',
-   'searchreplace visualblocks code fullscreen',
-   'insertdatetime media table contextmenu paste code help wordcount'
-]
---}}
 
 @section('custom-header')
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
@@ -18,7 +11,11 @@
          selector:'textarea#content',
          menubar: false,
          height: 300,
-         plugins: 'image code',
+         plugins: [
+            'advlist autolink lists link image charmap print preview anchor textcolor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table contextmenu paste code help wordcount'
+         ],
 
         // without images_upload_url set, Upload tab won't show up
         images_upload_url: 'upload',
@@ -66,13 +63,13 @@
                   <div class="panel panel-default">
                       <div class="panel-heading">Nova Publicação</div>
                       <div class="panel-body">
-                        <form class="form-horizontal" name="add_post" method="POST" action="/posts" enctype="multipart/form-data">
+                        <form class="form-horizontal" id="add_post" name="add_post" method="POST" action="/posts" enctype="multipart/form-data">
                            {{ csrf_field() }}
 
                            <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-                               <label for="title" class="col-md-4 control-label">Titulo</label>
+                               <label for="title" class="col-md-4 control-label">Título:</label>
                                <div class="col-md-6">
-                                   <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}" required/>
+                                   <input id="title" type="text" autocomplete="off" class="form-control" name="title" value="{{ old('title') }}" required/>
                                    @if ($errors->has('title'))
                                        <span class="help-block">
                                            <strong>{{ $errors->first('title') }}</strong>
@@ -82,9 +79,9 @@
                            </div>
 
                            <div class="form-group{{ $errors->has('url') ? ' has-error' : '' }}">
-                               <label for="url" class="col-md-4 control-label">URL</label>
+                               <label for="url" class="col-md-4 control-label">URL:</label>
                                <div class="col-md-6">
-                                   <input id="url" type="text" class="form-control" name="url" value="{{ old('url') }}" required/>
+                                   <input id="url" type="text" autocomplete="off" class="form-control" name="url" value="{{ old('url') }}" required/>
                                    @if ($errors->has('url'))
                                        <span class="help-block">
                                            <strong>{{ $errors->first('url') }}</strong>
@@ -94,7 +91,7 @@
                            </div>
 
                            <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-                               <label for="description" class="col-md-4 control-label">Descrição</label>
+                               <label for="description" class="col-md-4 control-label">Descrição:</label>
                                <div class="col-md-6">
                                    <textarea id="description" class="form-control" name="description">{{ old('description') }}</textarea>
                                    @if ($errors->has('description'))
@@ -106,7 +103,7 @@
                            </div>
 
                            <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
-                               <label for="content" class="col-md-4 control-label">Conteudo</label>
+                               <label for="content" class="col-md-4 control-label">Conteúdo:</label>
                                <div class="col-md-6">
                                    <textarea id="content" class="form-control" name="content">{{ old('content') }}</textarea>
                                    @if ($errors->has('content'))
@@ -118,7 +115,7 @@
                            </div>
 
                            <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
-                               <label for="image" class="col-md-4 control-label">Imagem</label>
+                               <label for="image" class="col-md-4 control-label">Imagem da Home:</label>
                                <div class="col-md-6">
                                    <input type="file" class="form-control" accept="image/*" name="image" value="{{ old('image') }}" required>
                                    @if ($errors->has('image'))
@@ -131,8 +128,8 @@
 
                           <div class="form-group">
                               <div class="col-md-8 col-md-offset-4">
-                                  <button type="submit" class="btn btn-primary">
-                                      Salvar
+                                  <button type="submit" class="btn btn-success">
+                                      Publicar
                                   </button>
                               </div>
                           </div>
@@ -142,4 +139,5 @@
               </div>
           </div>
       </div>
+
 @endsection

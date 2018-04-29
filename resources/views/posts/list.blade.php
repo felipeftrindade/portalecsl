@@ -48,16 +48,7 @@
                                           <li>
                                               <a target="_blank" href="{{'/'.$post->url}}">Visualizar</a>
                                               <a href="{{'/posts/'.$post->id.'/edit'}}">Editar</a>
-
-                                              <a href="#"
-                                                  onclick="event.preventDefault();
-                                                           document.getElementById('delete-form{{$post->id}}').submit();">
-                                                  Apagar
-                                              </a>
-                                              <form id="delete-form{{$post->id}}" action="/posts/{{$post->id}}" method="POST" style="display: none;">
-                                                  {{ csrf_field() }}
-                                                  {{ method_field('DELETE') }}
-                                              </form>
+                                              <a href="#" data-toggle="modal" data-target="#modalExcluir">Apagar</a>
                                           </li>
                                       </ul>
                                   </li>
@@ -74,5 +65,30 @@
         							</div>
                   </div>
           </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="excluir" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Atenção!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Deseja excluir a publicação? Não é possível recuperar após a exclusão!
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="button" onclick="event.preventDefault(); document.getElementById('delete-form{{$post->id}}').submit();" class="btn btn-danger">Excluir</button>
+            </div>
+          </div>
+        </div>
+        <form id="delete-form{{$post->id}}" action="/posts/{{$post->id}}" method="POST" style="display: none;">
+            {{ csrf_field() }}
+            {{ method_field('DELETE') }}
+        </form>
       </div>
 @endsection

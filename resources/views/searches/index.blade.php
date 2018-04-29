@@ -18,11 +18,6 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1 text-center">
-					<!--<ul class="hero-area-tree">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="blog.html">Blog</a></li>
-						<li>How to Get Started in Photography</li>
-					</ul>-->
 					<h1 class="white-text">Buscando por "{{ $s }}"</h1>
 					<ul class="blog-post-meta">
 						<li>

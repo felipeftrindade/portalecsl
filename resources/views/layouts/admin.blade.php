@@ -1,5 +1,6 @@
 <html>
   <head>
+    <link rel="icon" href="{{asset('./img/icon.png')}}">
     <title>@yield('title')</title>
     <!-- Styles -->
 
@@ -78,7 +79,14 @@
       </nav>
       @yield('content')
       <!-- Scripts -->
-      <script src="{{ asset('js/app.js') }}"></script>
+      <!-- preloader -->
+      <div id='preloader'><div class='preloader'></div></div>
+      <!-- /preloader -->
+
+      	<!-- jQuery Plugins -->
+    	<script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
+    	<script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
+    	<script type="text/javascript" src="{{asset('js/main.js')}}"></script>
   </div>
   </body>
 </html>
