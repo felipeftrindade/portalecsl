@@ -31,6 +31,16 @@
 
 	$('#add_post #title').on('change',function(){
 		$('#url').val(string_to_slug($('#title').val()));
-	})
+	});
+
+	$(".opc-excluir").on('click',function(e){
+		e.preventDefault();		
+		$("#modal_id").val($(this).data('id'));
+		$("#modalExcluir").modal('show');
+	});
+
+	$("#btn-excluir").on('click',function(e){
+		$("#delete-form"+$("#modal_id").val()).submit();
+	});
 
 })(jQuery);

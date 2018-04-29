@@ -48,7 +48,11 @@
                                           <li>
                                               <a target="_blank" href="{{'/'.$post->url}}">Visualizar</a>
                                               <a href="{{'/posts/'.$post->id.'/edit'}}">Editar</a>
-                                              <a href="#" data-toggle="modal" data-target="#modalExcluir">Apagar</a>
+                                              <a href="#" class="opc-excluir" data-id="{{$post->id}}">Apagar</a>
+                                              <form id="delete-form{{$post->id}}" action="/posts/{{$post->id}}" method="POST" style="display: none;">
+                                                  {{ csrf_field() }}
+                                                  {{ method_field('DELETE') }}
+                                              </form>
                                           </li>
                                       </ul>
                                   </li>
@@ -69,6 +73,7 @@
 
       <!-- Modal -->
       <div class="modal fade" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="excluir" aria-hidden="true">
+        <input type="hidden" id="modal_id" value="" />
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -82,13 +87,9 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-              <button type="button" onclick="event.preventDefault(); document.getElementById('delete-form{{$post->id}}').submit();" class="btn btn-danger">Excluir</button>
+              <button type="button" id="btn-excluir" class="btn btn-danger">Excluir</button>
             </div>
           </div>
         </div>
-        <form id="delete-form{{$post->id}}" action="/posts/{{$post->id}}" method="POST" style="display: none;">
-            {{ csrf_field() }}
-            {{ method_field('DELETE') }}
-        </form>
       </div>
 @endsection

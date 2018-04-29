@@ -48,19 +48,6 @@
 					<!-- /Mobile toggle -->
 				</div>
 
-				<!-- Navigation -->
-				<!--
-				<nav id="nav">
-					<ul class="main-menu nav navbar-nav navbar-right">
-						<li><a href="/">Home</a></li>
-						<li><a href="#">About</a></li>
-						<li><a href="#">Courses</a></li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">Contact</a></li>
-					</ul>
-				</nav>
-			-->
-				<!-- /Navigation -->
 
 				<div class="collapse navbar-collapse" id="app-navbar-collapse">
 						<!-- Left Side Of Navbar -->
@@ -216,19 +203,6 @@
     </div>
     <!-- footer logo -->
 
-    <!-- footer nav -->
-		<!--
-    <div class="col-md-6">
-      <ul class="footer-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Courses</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-	-->
-    <!-- /footer nav -->
 
   </div>
   <!-- /row -->
@@ -236,20 +210,6 @@
   <!-- row -->
   <div id="bottom-footer" class="row">
 
-    <!-- social -->
-		<!--
-    <div class="col-md-4 col-md-push-8">
-      <ul class="footer-social">
-        <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
-        <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a></li>
-        <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
-        <li><a href="#" class="youtube"><i class="fa fa-youtube"></i></a></li>
-        <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
-      </ul>
-    </div>
-	-->
-    <!-- /social -->
 		<!-- copyright -->
 		<div class="col-md-12">
 			<div class="footer-copyright text-center">
