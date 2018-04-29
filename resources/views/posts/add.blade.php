@@ -21,7 +21,7 @@
                   <div class="panel panel-default">
                       <div class="panel-heading">Nova Publicação</div>
                       <div class="panel-body">
-                        <form class="form-horizontal" name="add_post" method="POST" action="/posts">
+                        <form class="form-horizontal" name="add_post" method="POST" action="/posts" enctype="multipart/form-data">
                            {{ csrf_field() }}
 
                            <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
@@ -75,7 +75,7 @@
                            <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
                                <label for="image" class="col-md-4 control-label">Imagem</label>
                                <div class="col-md-6">
-                                   <input id="image" type="text" class="form-control" name="image" value="{{ old('image') }}" required>
+                                   <input type="file" class="form-control" accept="image/*" name="image" value="{{ old('image') }}" required>
                                    @if ($errors->has('image'))
                                        <span class="help-block">
                                            <strong>{{ $errors->first('image') }}</strong>

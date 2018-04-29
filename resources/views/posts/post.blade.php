@@ -26,11 +26,11 @@
 						</ul>-->
 						<h1 class="white-text">{{$title}}</h1>
 						<ul class="blog-post-meta">
-							<li class="blog-meta-author">Por : <a href="#">{{$post->Author->name}}</a></li>
 							<li>
+								Por : {{$post->Author->name}}&nbsp;&nbsp;|&nbsp;&nbsp;
 								{{date('d M, Y à\s H:i', strtotime($post->created_at))}}
 								@if ($post->updated_at !== null && $post->updated_at > $post->created_at)
-									- Atualizado em {{date('d/m/Y H:i', strtotime($post->updated_at))}}
+									- Atualizado em {{date('d M, Y à\s H:i', strtotime($post->updated_at))}}
 								@endif
 							</li>
 							<!--<li class="blog-meta-comments"><a href="#"><i class="fa fa-comments"></i> 35</a></li>-->
@@ -71,7 +71,7 @@
 						--}}
 						<!-- /blog share -->
 
-
+@if (!App::environment('local')) {
 						<!-- blog comments -->
 						<div id="disqus_thread" class="blog-comments"></div>
 						<!-- /blog comments -->
@@ -93,7 +93,7 @@
 							})();
 						</script>
 						<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
+@endif
 					<!-- /main blog -->
 				</div>
 @endsection

@@ -7,9 +7,9 @@
 @section('content')
       <div class="container">
           <div class="row">
-              @if(session()->has('message'))
+              @if(session()->has('sucess'))
                 <div class="alert alert-success">
-                    {{ session()->get('message') }}
+                    {{ session()->get('sucess') }}
                 </div>
                 @endif
                 <h4>Últimas Publicações</h4>

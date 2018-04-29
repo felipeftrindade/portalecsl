@@ -21,7 +21,7 @@
                   <div class="panel panel-default">
                       <div class="panel-heading">Editar Publicação</div>
                       <div class="panel-body">
-                        <form class="form-horizontal" name="edit_post" method="POST" action="/posts/{{ $post->id }}">
+                        <form class="form-horizontal" name="edit_post" method="POST" action="/posts/{{ $post->id }}" enctype="multipart/form-data">
                            {{ csrf_field() }}
                            {{ method_field('PATCH') }}
                            <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
@@ -77,12 +77,12 @@
                                <label for="image" class="col-md-4 control-label">Imagem</label>
                                <div class="col-md-6">
                                    @if ($errors->has('image'))
-                                       <input id="image" type="text" class="form-control" name="image" value="{{ old('image') }}" required>
+                                       <input type="file" class="form-control" accept="image/*" name="image" value="{{ old('image') }}">
                                        <span class="help-block">
                                            <strong>{{ $errors->first('image') }}</strong>
                                        </span>
                                    @else
-                                     <input id="image" type="text" class="form-control" name="image" value="{{$post->image}}" required>
+                                     <input type="file" class="form-control" accept="image/*" name="image">                                     
                                    @endif
                                </div>
                            </div>

@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use App\Post;
+use Session;
+use Storage;
+use Image;
 
 class PostsController extends Controller {
 
@@ -63,6 +66,7 @@ class PostsController extends Controller {
           'title' => 'required|unique:posts',
           'url' => 'required|unique:posts',
           'content' => 'required',
+          'image' => 'required|image',
       ]);
 
       $post = new Post;
@@ -70,37 +74,57 @@ class PostsController extends Controller {
       $post->url = $request->input('url');
       $post->description = $request->input('description');
       $post->content = $request->input('content');
-      $post->image = $request->input('image');
+
+      if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $filename = time() . '.' . strtolower($image->getClientOriginalExtension());
+        $location = public_path('images/' . $filename);
+        Image::make($image)->resize(800, 400)->save($location);
+        $post->image = $filename;
+      }
+
       $post->blog = 1;
       $post->category_id = 1;
       $post->author_id = Auth::user()->id;
-      //$post->created_at_ip = Request::ip();
 
       $post->save();
-
-      return redirect('/posts')->with('message', 'Publicação criada com sucesso!');
+      Session::flash('sucess','Publicação criada com sucesso!');
+      return redirect('/posts');
     }
 
     public function update(Request $request, Post $post){
       $this->validate(request(), [
-          'title' => 'required|unique:posts',
+          'title' => 'required',
           'content' => 'required',
+          'image' => 'sometimes|image',
       ]);
+
       $post->title = $request->input('title');
       $post->description = $request->input('description');
       $post->content = $request->input('content');
-      $post->image = $request->input('image');
+
+      if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $filename = time() . '.' . strtolower($image->getClientOriginalExtension());
+        $location = public_path('images/' . $filename);
+        Image::make($image)->resize(800, 400)->save($location);
+
+        $oldFileName = $post->image;
+        $post->image = $filename;
+        Storage::delete($oldFileName);
+      }
 
       $post->save();
-
-    //  Session::flash('sucess','Publicação atualizada com sucesso.');
-      return redirect('/posts')->with('message', 'Publicação atualizada com sucesso!');
+      Session::flash('sucess','Publicação atualizada com sucesso.');
+      return redirect('/posts');
     }
 
     public function delete(Request $request, $id){
-      $post= Post::find($id);
+      $post = Post::find($id);
+      Storage::delete($post->image);
       $post->delete();
-      return back()->with('message', 'Publicação excluida com sucesso!');
+      Session::flash('sucess','Publicação excluida com sucesso!');
+      return back();
     }
 
 

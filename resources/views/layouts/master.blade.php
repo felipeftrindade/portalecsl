@@ -61,6 +61,45 @@
 			-->
 				<!-- /Navigation -->
 
+				<div class="collapse navbar-collapse" id="app-navbar-collapse">
+						<!-- Left Side Of Navbar -->
+						<ul class="nav navbar-nav">
+								&nbsp;
+						</ul>
+
+						@if(Auth::check())
+							<!-- Right Side Of Navbar -->
+							<ul class="nav navbar-nav navbar-right">
+									<!-- Authentication Links -->
+								<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+												{{ Auth::user()->name }} <span class="caret"></span>
+										</a>
+
+										<ul class="dropdown-menu" role="menu">
+											<li>
+													<a href="/posts/add">Nova Publicação</a>
+											</li>
+												<li>
+														<a href="/posts">Minhas Publicações</a>
+												</li>
+												<li>
+														<a href="/logout"
+																onclick="event.preventDefault();
+																				 document.getElementById('logout-form').submit();">
+																Logout
+														</a>
+
+														<form id="logout-form" action="/logout" method="POST" style="display: none;">
+																{{ csrf_field() }}
+														</form>
+												</li>
+										</ul>
+								</li>
+							</ul>
+						@endif
+				</div>
+
 			</div>
 		</header>
 		<!-- /Header -->
@@ -169,7 +208,7 @@
     <!-- footer logo -->
     <div class="col-md-6">
       <div class="footer-logo">
-        <a class="logo" href="index.html">
+        <a class="logo" href="/">
           <img src="{{asset('./img/logo.png')}}" alt="logo">
         </a>
       </div>
@@ -210,14 +249,13 @@
     </div>
 	-->
     <!-- /social -->
-
-    <!-- copyright -->
-    <div class="col-md-8 col-md-pull-4">
-      <div class="footer-copyright">
-        <span>&copy; Copyright 2018. All Rights Reserved. | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com">Colorlib</a></span>
-      </div>
-    </div>
-    <!-- /copyright -->
+		<!-- copyright -->
+		<div class="col-md-12">
+			<div class="footer-copyright text-center">
+				<span>&copy; Copyright 2018. All Rights Reserved.</span>
+			</div>
+		</div>
+		<!-- /copyright -->
 
   </div>
   <!-- row -->

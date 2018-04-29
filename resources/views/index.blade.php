@@ -48,7 +48,7 @@
   								<div class="single-blog">
   									<div class="blog-img">
   										<a href="{{'/'.$post->url}}">
-  											<img src="{{'./img/'.$post->image}}" alt="">
+  											<img src="{{asset('images/'.$post->image)}}">
   										</a>
   									</div>
   									<h4><a href="{{'/'.$post->url}}">{{$post->title}}</a></h4>
@@ -81,6 +81,8 @@
 					</div>
 					<!-- /main blog -->
 @endsection
-@section('count-disqus')
-	<script id="dsq-count-scr" src="//portalecsl.disqus.com/count.js" async></script>
-@endsection
+@if (!App::environment('local')) {
+	@section('count-disqus')
+		<script id="dsq-count-scr" src="//portalecsl.disqus.com/count.js" async></script>
+	@endsection
+@endif

@@ -53,10 +53,10 @@
 
                           <ul class="dropdown-menu" role="menu">
                               <li>
-                                  <a href="/posts">Minhas Publicações</a>
+                                  <a href="/posts/add">Nova Publicação</a>
                               </li>
                               <li>
-                                  <a href="/posts/add">Nova Publicação</a>
+                                  <a href="/posts">Minhas Publicações</a>
                               </li>
                               <li>
                                   <a href="/logout"
