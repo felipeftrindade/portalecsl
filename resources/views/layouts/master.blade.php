@@ -10,11 +10,11 @@
 		@yield('seo')
 
 		<!-- Google font -->
-		<link href="https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600" rel="stylesheet"/>
 		<!-- Bootstrap -->
 		<link type="text/css" rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}"/>
 		<!-- Font Awesome Icon -->
-		<link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+		<link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}"/>
 		<!-- Custom stlylesheet -->
 		<link type="text/css" rel="stylesheet" href="{{asset('css/style.css')}}"/>
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

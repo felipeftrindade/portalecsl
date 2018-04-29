@@ -128,5 +128,20 @@ class PostsController extends Controller {
       return back();
     }
 
+    public function upload(Request $request){
+      $this->validate(request(), [
+          'file' => 'required|image',
+      ]);
+
+      $image = $request->file('file');
+      $filename = time() . '.' . strtolower($image->getClientOriginalExtension());
+      $location = public_path('images/' . $filename);
+      Image::make($image)->resize(800, 400)->save($location);
+      
+      header('Access-Control-Allow-Origin: *');
+      return response()->json(array('location' => $location));
+
+    }
+
 
 }

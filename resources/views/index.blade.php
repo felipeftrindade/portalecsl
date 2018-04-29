@@ -81,7 +81,7 @@
 					</div>
 					<!-- /main blog -->
 @endsection
-@if (!App::environment('local')) {
+@if (!App::environment('local'))
 	@section('count-disqus')
 		<script id="dsq-count-scr" src="//portalecsl.disqus.com/count.js" async></script>
 	@endsection

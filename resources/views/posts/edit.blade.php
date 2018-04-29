@@ -8,8 +8,14 @@
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
     <script>
       tinymce.init({
-         selector:'textarea',
-         plugins: "autolink"
+        selector:'textarea#content',
+        menubar: false,
+        height: 300,
+        plugins: [
+             'advlist autolink lists link image charmap print preview anchor textcolor',
+             'searchreplace visualblocks code fullscreen',
+             'insertdatetime media table contextmenu paste code help wordcount'
+           ]
       });
     </script>
 @endsection
@@ -82,7 +88,7 @@
                                            <strong>{{ $errors->first('image') }}</strong>
                                        </span>
                                    @else
-                                     <input type="file" class="form-control" accept="image/*" name="image">                                     
+                                     <input type="file" class="form-control" accept="image/*" name="image">
                                    @endif
                                </div>
                            </div>

@@ -3,13 +3,58 @@
 @section('title')
   Nova Publicação | ECSL
 @endsection
+{{--
+[
+   'advlist autolink lists link image charmap print preview anchor textcolor',
+   'searchreplace visualblocks code fullscreen',
+   'insertdatetime media table contextmenu paste code help wordcount'
+]
+--}}
 
 @section('custom-header')
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
     <script>
       tinymce.init({
-         selector:'textarea',
-         plugins: "autolink"
+         selector:'textarea#content',
+         menubar: false,
+         height: 300,
+         plugins: 'image code',
+
+        // without images_upload_url set, Upload tab won't show up
+        images_upload_url: 'upload',
+
+          // override default upload handler to simulate successful upload
+          images_upload_handler: function (blobInfo, success, failure) {
+              var xhr, formData;
+
+              xhr = new XMLHttpRequest();
+              xhr.withCredentials = false;
+              xhr.open('POST', 'upload');
+
+              xhr.onload = function() {
+                  var json;
+
+                  if (xhr.status != 200) {
+                      failure('HTTP Error: ' + xhr.status);
+                      return;
+                  }
+
+                  json = JSON.parse(xhr.responseText);
+
+                  if (!json || typeof json.location != 'string') {
+                      failure('Invalid JSON: ' + xhr.responseText);
+                      return;
+                  }
+
+                  success(json.location);
+              };
+
+              formData = new FormData();
+              formData.append('file', blobInfo.blob(), blobInfo.filename());
+              formData.append('_token', '{{ csrf_token() }}');
+
+              xhr.send(formData);
+          },
       });
     </script>
 @endsection
