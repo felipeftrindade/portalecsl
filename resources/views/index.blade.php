@@ -8,7 +8,7 @@
 		<div class="hero-area section">
 
 			<!-- Backgound Image -->
-			<div class="bg-image bg-parallax overlay" style="background-image:url(./img/page-background.jpg)"></div>
+			<div class="bg-image bg-parallax overlay" style="background-image:url(./images/page-background.jpg)"></div>
 			<!-- /Backgound Image -->
 
 			<div class="container">
@@ -44,7 +44,7 @@
   								<div class="single-blog">
   									<div class="blog-img">
   										<a href="{{'/'.$post->url}}">
-  											<img width="200px" height="200px" src="{{asset('images/'.$post->image)}}">
+  											<img src="{{asset($post->image)}}">
   										</a>
   									</div>
   									<h4><a href="{{'/'.$post->url}}">{{$post->title}}</a></h4>
@@ -52,7 +52,7 @@
 											<span class="description"></span>
   										<span class="blog-meta-author">Por: {{$post->Author->name}}</span>
   										<div class="pull-right">
-  											<span>{{date('d M, Y à\s H:i', strtotime($post->created_at))}}</span>
+  											<span>{{date('d M Y à\s H:i', strtotime($post->created_at))}}</span>
   											<span class="blog-meta-comments"><a href="{{'/'.$post->url}}#disqus_thread" data-disqus-identifier="{{$post->url}}"></a></span>
   										</div>
   									</div>

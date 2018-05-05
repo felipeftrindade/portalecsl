@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="icon" href="{{asset('./img/icon.png')}}">
+		<link rel="icon" href="{{asset('./images/icon.png')}}">
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		<title>@yield('titulo')</title>
 
@@ -34,7 +34,7 @@
 					<!-- Logo -->
 					<div class="navbar-brand">
 						<a class="logo" href="/">
-							<img src="{{asset('./img/logo.png')}}" alt="logo">
+							<img src="{{asset('./images/logo.png')}}" alt="logo">
 						</a>
 					</div>
 					<!-- /Logo -->
@@ -126,7 +126,7 @@
         <!-- single posts -->
         <div class="single-post">
           <a class="single-post-img" href="blog-post.html">
-            <img src="{{asset('./img/post01.jpg')}}" alt="">
+            <img src="{{asset('./images/post01.jpg')}}" alt="">
           </a>
           <a href="blog-post.html">Pro eu error molestie deserunt.</a>
           <p><small>By : John Doe .18 Oct, 2017</small></p>
@@ -136,7 +136,7 @@
         <!-- single posts -->
         <div class="single-post">
           <a class="single-post-img" href="blog-post.html">
-            <img src="{{asset('./img/post02.jpg')}}" alt="">
+            <img src="{{asset('./images/post02.jpg')}}" alt="">
           </a>
           <a href="blog-post.html">Pro eu error molestie deserunt.</a>
           <p><small>By : John Doe .18 Oct, 2017</small></p>
@@ -146,7 +146,7 @@
         <!-- single posts -->
         <div class="single-post">
           <a class="single-post-img" href="blog-post.html">
-            <img src="{{asset('./img/post03.jpg')}}" alt="">
+            <img src="{{asset('./images/post03.jpg')}}" alt="">
           </a>
           <a href="blog-post.html">Pro eu error molestie deserunt.</a>
           <p><small>By : John Doe .18 Oct, 2017</small></p>
@@ -197,7 +197,7 @@
     <div class="col-md-6">
       <div class="footer-logo">
         <a class="logo" href="/">
-          <img src="{{asset('./img/logo.png')}}" alt="logo">
+          <img src="{{asset('./images/logo.png')}}" alt="logo">
         </a>
       </div>
     </div>

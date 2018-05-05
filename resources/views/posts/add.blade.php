@@ -117,7 +117,7 @@
                            <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
                                <label for="image" class="col-md-4 control-label">Imagem da Home:</label>
                                <div class="col-md-6">
-                                   <input type="file" class="form-control" accept="image/*" name="image" value="{{ old('image') }}" required>
+                                   <input type="file" class="form-control" accept="image/*" name="image" value="{{ old('image') }}">
                                    @if ($errors->has('image'))
                                        <span class="help-block">
                                            <strong>{{ $errors->first('image') }}</strong>

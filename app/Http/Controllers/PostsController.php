@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Input;
 use App\Post;
 use Session;
@@ -66,8 +67,9 @@ class PostsController extends Controller {
       $this->validate(request(), [
           'title' => 'required|unique:posts',
           'url' => 'required|unique:posts',
+          'description' => 'required',
           'content' => 'required',
-          'image' => 'required|image',
+          'image' => 'sometimes|image',
       ]);
 
       $post = new Post;
@@ -79,9 +81,9 @@ class PostsController extends Controller {
       if ($request->hasFile('image')) {
         $image = $request->file('image');
         $filename = time() . '.' . strtolower($image->getClientOriginalExtension());
-        $location = public_path('images/' . $filename);
-        Image::make($image)->save($location);
-        $post->image = $filename;
+        $post->image = $this->uploadImage($filename, $image, false);
+      } else {
+        $post->image = "images/logo.png";
       }
 
       $post->blog = 1;
@@ -96,6 +98,7 @@ class PostsController extends Controller {
     public function update(Request $request, Post $post){
       $this->validate(request(), [
           'title' => 'required',
+          'description' => 'required',
           'content' => 'required',
           'image' => 'sometimes|image',
       ]);
@@ -107,14 +110,8 @@ class PostsController extends Controller {
       if ($request->hasFile('image')) {
         $image = $request->file('image');
         $filename = time() . '.' . strtolower($image->getClientOriginalExtension());
-        $location = public_path('images/' . $filename);
-        Image::make($image)->resize(800, 400)->save($location);
-
-        $oldFileName = $post->image;
-        $post->image = $filename;
-        Storage::delete($oldFileName);
+        $post->image = $this->uploadImage($filename, $image, false);
       }
-
       $post->save();
       Session::flash('sucess','Publicação atualizada com sucesso.');
       return redirect('/posts');
@@ -122,7 +119,6 @@ class PostsController extends Controller {
 
     public function delete(Request $request, $id){
       $post = Post::find($id);
-      Storage::delete($post->image);
       $post->delete();
       Session::flash('sucess','Publicação excluida com sucesso!');
       return back();
@@ -135,13 +131,22 @@ class PostsController extends Controller {
 
       $image = $request->file('file');
       $filename = time() . '.' . strtolower($image->getClientOriginalExtension());
-      $location = public_path('images/' . $filename);
-      Image::make($image)->save($location);
-
+      $path = $this->uploadImage($filename, $image, true);
       header('Access-Control-Allow-Origin: *');
-      return response()->json(array('location' => '../images/'.$filename));
-
+      return response()->json(array('location' => $path));
     }
 
+    public function uploadImage($filename, $image, $isWYSIWYG){
+      if (!App::environment('local')){
+        Storage::disk('s3')->put('images/'.$filename, file_get_contents($image), 'public');
+        return 'https://s3.us-east-2.amazonaws.com/portalecsl-assets/images/'.$filename;
+      }
+      $location = public_path('images/' . $filename);
+      Image::make($image)->save($location);
+      if ($isWYSIWYG){
+        return '../images/'.$filename;
+      }
+      return 'images/' . $filename;
+    }
 
 }

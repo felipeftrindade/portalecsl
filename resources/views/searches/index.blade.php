@@ -12,7 +12,7 @@
 	<div class="hero-area section">
 
 		<!-- Backgound Image -->
-		<div class="bg-image bg-parallax overlay" style="background-image:url({{asset('./img/page-background.jpg')}})"></div>
+		<div class="bg-image bg-parallax overlay" style="background-image:url({{asset('./images/page-background.jpg')}})"></div>
 		<!-- /Backgound Image -->
 
 		<div class="container">
@@ -50,7 +50,7 @@
 									<div class="single-blog">
 										<div class="blog-img">
 											<a href="{{'/'.$post->url}}">
-												<img src="{{'./img/'.$post->image}}" alt="">
+												<img src="{{'./images/'.$post->image}}" alt="">
 											</a>
 										</div>
 										<h4><a href="{{'/'.$post->url}}">{{$post->title}}</a></h4>

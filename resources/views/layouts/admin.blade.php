@@ -1,6 +1,6 @@
 <html>
   <head>
-    <link rel="icon" href="{{asset('./img/icon.png')}}">
+    <link rel="icon" href="{{asset('./images/icon.png')}}">
     <title>@yield('title')</title>
     <!-- Styles -->
 
@@ -32,7 +32,7 @@
                   <!-- Branding Image -->
                   <div class="navbar-brand">
         						<a class="logo" href="/">
-        							<img src="{{asset('./img/logo.png')}}" alt="logo">
+        							<img src="{{asset('./images/logo.png')}}" alt="logo">
         						</a>
         					</div>
               </div>

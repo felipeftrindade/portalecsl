@@ -13,7 +13,7 @@
 		<div class="hero-area section">
 
 			<!-- Backgound Image -->
-			<div class="bg-image bg-parallax overlay" style="background-image:url({{asset('./img/page-background.jpg')}})"></div>
+			<div class="bg-image bg-parallax overlay" style="background-image:url({{asset('./images/page-background.jpg')}})"></div>
 			<!-- /Backgound Image -->
 
 			<div class="container">
@@ -23,9 +23,9 @@
 						<ul class="blog-post-meta">
 							<li>
 								Por : {{$post->Author->name}}&nbsp;&nbsp;|&nbsp;&nbsp;
-								{{date('d M, Y à\s H:i', strtotime($post->created_at))}}
+								{{date('d M Y à\s H:i', strtotime($post->created_at))}}
 								@if ($post->updated_at !== null && $post->updated_at > $post->created_at)
-									- Última atualização em {{date('d M, Y à\s H:i', strtotime($post->updated_at))}}
+									- Última atualização em {{date('d M Y à\s H:i', strtotime($post->updated_at))}}
 								@endif
 							</li>
 						</ul>
@@ -54,7 +54,7 @@
             </div>
 						<!-- /blog post -->
 
-@if (!App::environment('local')) {
+@if (!App::environment('local'))
 						<!-- blog comments -->
 						<div id="disqus_thread" class="blog-comments"></div>
 						<!-- /blog comments -->
