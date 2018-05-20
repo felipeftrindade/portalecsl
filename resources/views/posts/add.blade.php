@@ -113,7 +113,23 @@
                                    @endif
                                </div>
                            </div>
-
+                          {{--
+                           <div class="form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
+                               <label for="category_id" class="col-md-4 control-label">Categoria:</label>
+                               <div class="col-md-6">
+                                   <select class="form-control" name="category_id">
+                                      @foreach($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                      @endforeach
+                                   </select>
+                                   @if ($errors->has('category_id'))
+                                       <span class="help-block">
+                                           <strong>{{ $errors->first('category_id') }}</strong>
+                                       </span>
+                                   @endif
+                               </div>
+                           </div>
+                           --}}
                            <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
                                <label for="image" class="col-md-4 control-label">Imagem da Home:</label>
                                <div class="col-md-6">

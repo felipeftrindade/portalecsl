@@ -17,9 +17,11 @@ Route::get('/admin', 'UsersController@getLogin');
 Route::get('/posts','PostsController@listAll');
 Route::get('/posts/add', 'PostsController@add');
 Route::get('/posts/{id}/edit','PostsController@edit');
+Route::get('/categorias','CategoriesController@index');
 Route::get('/{url}','PostsController@show');
 Route::post('/posts','PostsController@store');
 Route::post('/posts/upload','PostsController@upload');
+Route::post('/categorias','CategoriesController@store');
 Route::patch('/posts/{post}','PostsController@update');
 Route::delete('/posts/{id}','PostsController@delete');
 

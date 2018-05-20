@@ -9,7 +9,6 @@ class Post extends Model
 {
 
   protected $fillable = array('url', 'title', 'description', 'content', 'image', 'blog', 'category_id', 'author_id');
-  //public $timestamps = true;
 
   public static function prevBlogPostUrl($id) {
       $blog = static::where('id', '<', $id)->orderBy('id', 'desc')->first();

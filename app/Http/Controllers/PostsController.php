@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Input;
+use App\BlogCategory;
 use App\Post;
 use Session;
 use Storage;
@@ -51,6 +52,8 @@ class PostsController extends Controller {
     }
 
     public function add(){
+      /*$categories = BlogCategory::orderBy('name')->get(); */
+      //->with('categories',$categories);
       return view('posts.add');
     }
 
@@ -59,6 +62,8 @@ class PostsController extends Controller {
         return redirect('/admin');
       }
       $post = $post = Post::find($id);
+      //$categories = BlogCategory::where('id', '>', 0)->orderBy('name', 'ASC');
+      //return view('posts.add')->with('categories',$categories);
       return view('posts.edit')->with('post',$post);
     }
 
@@ -68,7 +73,7 @@ class PostsController extends Controller {
           'title' => 'required|unique:posts',
           'url' => 'required|unique:posts',
           'description' => 'required',
-          'content' => 'required',
+          'content' => 'required',          
           'image' => 'sometimes|image',
       ]);
 
@@ -87,6 +92,7 @@ class PostsController extends Controller {
       }
 
       $post->blog = 1;
+      //$post->category_id = $request->input('category_id');
       $post->category_id = 1;
       $post->author_id = Auth::user()->id;
 

@@ -105,55 +105,24 @@
         </form>
       </div>
       <!-- /search widget -->
-
+			{{--
       <!-- category widget -->
       <div class="widget category-widget">
         <h3>Categorias</h3>
-				{{--
         <a class="category" href="#">Web <span>12</span></a>
         <a class="category" href="#">Css <span>5</span></a>
         <a class="category" href="#">Wordpress <span>24</span></a>
         <a class="category" href="#">Html <span>78</span></a>
         <a class="category" href="#">Business <span>36</span></a>
-				--}}
       </div>
       <!-- /category widget -->
-
+			--}}
+			{{--
       <!-- posts widget -->
       <div class="widget posts-widget">
         <h3>Últimos posts</h3>
-				{{--
-        <!-- single posts -->
-        <div class="single-post">
-          <a class="single-post-img" href="blog-post.html">
-            <img src="{{asset('./images/post01.jpg')}}" alt="">
-          </a>
-          <a href="blog-post.html">Pro eu error molestie deserunt.</a>
-          <p><small>By : John Doe .18 Oct, 2017</small></p>
-        </div>
-        <!-- /single posts -->
-
-        <!-- single posts -->
-        <div class="single-post">
-          <a class="single-post-img" href="blog-post.html">
-            <img src="{{asset('./images/post02.jpg')}}" alt="">
-          </a>
-          <a href="blog-post.html">Pro eu error molestie deserunt.</a>
-          <p><small>By : John Doe .18 Oct, 2017</small></p>
-        </div>
-        <!-- /single posts -->
-
-        <!-- single posts -->
-        <div class="single-post">
-          <a class="single-post-img" href="blog-post.html">
-            <img src="{{asset('./images/post03.jpg')}}" alt="">
-          </a>
-          <a href="blog-post.html">Pro eu error molestie deserunt.</a>
-          <p><small>By : John Doe .18 Oct, 2017</small></p>
-        </div>
-        <!-- /single posts -->
-				--}}
       </div>
+
       <!-- /posts widget -->
 
       <!-- tags widget -->
@@ -171,7 +140,7 @@
 			-->
       </div>
       <!-- /tags widget -->
-
+			--}}
     </div>
     <!-- /aside blog -->
 
