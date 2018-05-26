@@ -91,12 +91,12 @@
                                <label for="description" class="col-md-4 control-label">Descrição:</label>
                                <div class="col-md-6">
                                    @if ($errors->has('description'))
-                                       <textarea id="description" class="form-control" name="description">{{ old('description') }}</textarea>
+                                       <textarea maxlength="170" id="description" class="form-control" name="description">{{ old('description') }}</textarea>
                                        <span class="help-block">
                                            <strong>{{ $errors->first('description') }}</strong>
                                        </span>
                                    @else
-                                    <textarea id="description" class="form-control" name="description">{{$post->description}}</textarea>
+                                    <textarea maxlength="170" id="description" class="form-control" name="description">{{$post->description}}</textarea>
                                    @endif
                                </div>
                            </div>
