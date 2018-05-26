@@ -15,7 +15,7 @@
 				<div class="row">
 					<div class="col-md-10 col-md-offset-1 text-center">
 						<h1 class="white-text">Empreendendo com Software Livre</h1>
-
+						<span class="white-text">Aqui apresentamos softwares gratuitos e open source para seu negócio de pequeno porte.</span>
 					</div>
 				</div>
 			</div>
