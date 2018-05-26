@@ -31,6 +31,7 @@ Table OF Contents
 	General
 \*------------------------------------*/
 
+.nopadding {padding: 0;}
 
 .truncate-ellipsis {
     max-width: 177px;
