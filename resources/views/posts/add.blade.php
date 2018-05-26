@@ -113,7 +113,7 @@
                                    @endif
                                </div>
                            </div>
-                          {{--
+                          
                            <div class="form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
                                <label for="category_id" class="col-md-4 control-label">Categoria:</label>
                                <div class="col-md-6">
@@ -129,7 +129,7 @@
                                    @endif
                                </div>
                            </div>
-                           --}}
+
                            <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
                                <label for="image" class="col-md-4 control-label">Imagem da Home:</label>
                                <div class="col-md-6">

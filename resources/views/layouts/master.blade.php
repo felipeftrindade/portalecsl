@@ -105,18 +105,22 @@
         </form>
       </div>
       <!-- /search widget -->
-			{{--
+
       <!-- category widget -->
       <div class="widget category-widget">
         <h3>Categorias</h3>
-        <a class="category" href="#">Web <span>12</span></a>
-        <a class="category" href="#">Css <span>5</span></a>
-        <a class="category" href="#">Wordpress <span>24</span></a>
-        <a class="category" href="#">Html <span>78</span></a>
-        <a class="category" href="#">Business <span>36</span></a>
+					@foreach($categories as $category)
+						<a class="category" href="/search?categoria={{$category->id}}">{{$category->name}}<span>{{$category->posts}}</span></a>
+					@endforeach
+				<!--
+        <a class="category" href="/search?categoria=2">RH <span></span></a>
+        <a class="category" href="/search?categoria=3">Office <span></span></a>
+        <a class="category" href="/search?categoria=4">ERP <span></span></a>
+        <a class="category" href="/search?categoria=5">HelpDesk <span></span></a>
+			-->
       </div>
       <!-- /category widget -->
-			--}}
+
 			{{--
       <!-- posts widget -->
       <div class="widget posts-widget">
@@ -182,7 +186,7 @@
 		<!-- copyright -->
 		<div class="col-md-12">
 			<div class="footer-copyright text-center">
-				<span>&copy; Copyright 2018. All Rights Reserved.</span>
+				<span>&copy; 2018 - Felipe Trindade, Wilianm Masayuki.</span>
 			</div>
 		</div>
 		<!-- /copyright -->

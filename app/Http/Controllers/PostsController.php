@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+
 use App\BlogCategory;
 use App\Post;
 use Session;
@@ -18,14 +20,17 @@ class PostsController extends Controller {
     public function index() {
         $posts = Post::where('id', '>', 0)->orderBy('created_at', 'DESC')->paginate(4);
         $posts->setPath('/');
-        return view('index')->with('posts',$posts);
+
+        $categories = BlogCategory::where('posts', '>', 0)->take(5)->orderBy('posts', 'DESC')->get();
+        return view('index', ['posts' => $posts, 'categories' => $categories ]);
+        //return view('index')->with('posts',$posts);
     }
 
     public function listAll() {
       if(!Auth::check()){
         return redirect('/admin');
       }
-      $posts = Post::where('author_id', '=', Auth::user()->id)->orderBy('created_at', 'DESC')->paginate();
+      $posts = Post::where('author_id', '=', Auth::user()->id)->orderBy('created_at', 'DESC')->paginate(10);
       $posts->setPath('/posts');
       return view('posts.list')->with('posts',$posts);
 
@@ -33,38 +38,22 @@ class PostsController extends Controller {
 
     public function show($url) {
       $post = Post::whereUrl($url)->first();
-
-      $tags = $post->tags;
-      $prev_url = Post::prevBlogPostUrl($post->id);
-      $next_url = Post::nextBlogPostUrl($post->id);
-      $title = $post->title;
-      $description = $post->description;
-      $page = 'blog';
-      $data = compact('prev_url',
-               'next_url',
-               'tags',
-               'post',
-               'title',
-               'description',
-               'page'
-             );
-      return view('posts.post', $data);
+      $categories = BlogCategory::where('posts', '>', 0)->take(5)->orderBy('posts', 'DESC')->get();
+      return view('posts.post',['post' => $post, 'categories' => $categories ]);
     }
 
     public function add(){
-      /*$categories = BlogCategory::orderBy('name')->get(); */
-      //->with('categories',$categories);
-      return view('posts.add');
+      $categories = BlogCategory::orderBy('name')->get();
+      return view('posts.add')->with('categories',$categories);
     }
 
     public function edit($id){
       if(!Auth::check()){
         return redirect('/admin');
       }
-      $post = $post = Post::find($id);
-      //$categories = BlogCategory::where('id', '>', 0)->orderBy('name', 'ASC');
-      //return view('posts.add')->with('categories',$categories);
-      return view('posts.edit')->with('post',$post);
+      $post = Post::find($id);
+      $categories = BlogCategory::orderBy('name')->get();
+      return view('posts.edit', ['post' => $post, 'categories' => $categories ]);
     }
 
     public function store(Request $request) {
@@ -73,7 +62,7 @@ class PostsController extends Controller {
           'title' => 'required|unique:posts',
           'url' => 'required|unique:posts',
           'description' => 'required',
-          'content' => 'required',          
+          'content' => 'required',
           'image' => 'sometimes|image',
       ]);
 
@@ -92,11 +81,13 @@ class PostsController extends Controller {
       }
 
       $post->blog = 1;
-      //$post->category_id = $request->input('category_id');
-      $post->category_id = 1;
+      $post->category_id = $request->input('category_id');
       $post->author_id = Auth::user()->id;
 
       $post->save();
+
+      DB::table('blog_categories')->whereId($post->category_id)->increment('posts');
+
       Session::flash('sucess','Publicação criada com sucesso!');
       return redirect('/posts');
     }
@@ -112,6 +103,7 @@ class PostsController extends Controller {
       $post->title = $request->input('title');
       $post->description = $request->input('description');
       $post->content = Purifier::clean($request->input('content'));
+      $post->category_id = $request->input('category_id');
 
       if ($request->hasFile('image')) {
         $image = $request->file('image');
@@ -126,6 +118,9 @@ class PostsController extends Controller {
     public function delete(Request $request, $id){
       $post = Post::find($id);
       $post->delete();
+
+      DB::table('blog_categories')->whereId($post->category_id)->decrement('posts');
+
       Session::flash('sucess','Publicação excluida com sucesso!');
       return back();
     }

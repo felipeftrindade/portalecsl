@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('titulo')
-	{{$title}} | ECSL
+	{{$post->title}} | ECSL
 @endsection
 
 @section('seo')
@@ -19,14 +19,19 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-10 col-md-offset-1 text-center">
-						<h1 class="white-text">{{$title}}</h1>
+						<h1 class="white-text">{{$post->title}}</h1>
 						<ul class="blog-post-meta">
 							<li>
-								Por : {{$post->Author->name}}&nbsp;&nbsp;|&nbsp;&nbsp;
-								{{date('d M Y à\s H:i', strtotime($post->created_at))}}
-								@if ($post->updated_at !== null && $post->updated_at > $post->created_at)
-									- Última atualização em {{date('d M Y à\s H:i', strtotime($post->updated_at))}}
-								@endif
+									Por : {{$post->Author->name}}
+									&nbsp;&nbsp;|&nbsp;&nbsp;
+									{{date('d M Y à\s H:i', strtotime($post->created_at))}}
+									@if ($post->updated_at !== null && $post->updated_at > $post->created_at)
+										- Última atualização em {{date('d M Y à\s H:i', strtotime($post->updated_at))}}
+									@endif
+							</li>
+							<br>
+							<li class="blog-meta-author">
+								Categoria: <a href="/search?categoria={{$post->category_id}}">{{$post->categoria->name}}</a>
 							</li>
 						</ul>
 					</div>

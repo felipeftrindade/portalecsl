@@ -60,6 +60,9 @@
                                   <a href="/posts">Minhas Publicações</a>
                               </li>
                               <li>
+                                  <a href="/categorias">Categorias</a>
+                              </li>
+                              <li>
                                   <a href="/logout"
                                       onclick="event.preventDefault();
                                                document.getElementById('logout-form').submit();">

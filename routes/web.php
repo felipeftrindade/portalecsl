@@ -11,6 +11,7 @@
 |
 */
 
+#Auth::routes();
 Route::get('/', 'PostsController@index');
 Route::get('/search/{s?}', 'SearchesController@getIndex')->where('s', '[\w\d]+');
 Route::get('/admin', 'UsersController@getLogin');
@@ -24,9 +25,5 @@ Route::post('/posts/upload','PostsController@upload');
 Route::post('/categorias','CategoriesController@store');
 Route::patch('/posts/{post}','PostsController@update');
 Route::delete('/posts/{id}','PostsController@delete');
-
 Route::post('/login', 'UsersController@postLogin');
 Route::post('/logout', 'UsersController@getLogout');
-
-#Auth::routes();
-#Route::get('/home', 'HomeController@index')->name('home');
